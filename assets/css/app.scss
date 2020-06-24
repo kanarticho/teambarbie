@@ -1,6 +1,28 @@
+@import "vars";
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "danger": $danger,
+);
+@import "~bootstrap/scss/bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@200&family=Roboto:wght@300&display=swap');
+
+@mixin text ($font-family,$font-size) {
+    font-family: $main-font;
+    font-size: $font-size;
+}
 body {
-    background-color: lightgray;
+    background-color: $light;
+    @include text ($main-font, 14px);
+}
+h1 {
+    @include text ($title-font,26px);
+}
+h2, h3 {
+    @include text ($title-font,20px);
 }
 
-
-@import "~bootstrap/scss/bootstrap";
+.quote {
+    @include text($quote-font, 20px);
+}

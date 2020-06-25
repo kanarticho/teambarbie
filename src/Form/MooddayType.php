@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Mood;
 use App\Entity\Moodday;
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,8 +16,14 @@ class MooddayType extends AbstractType
     {
         $builder
             ->add('date')
-            ->add('patient')
-            ->add('mood')
+            ->add('patient', null, ['choice_label' => 'lastname'])
+            ->add('mood', EntityType::class, [
+                'class' => Mood::class,
+                'choice_label' => 'pictogram',
+                'expanded' => true,
+                'multiple' => false,
+                'by_reference' => false,
+                ])
         ;
     }
 

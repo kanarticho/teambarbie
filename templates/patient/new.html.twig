@@ -3,9 +3,9 @@
 {% block title %}New Patient{% endblock %}
 
 {% block body %}
-    <h1>Create new Patient</h1>
-
+    <div class="w-25 m-auto text-center">
+    <h1>Create new Patient<br>for Dr {{ doctor.firstname }} {{ doctor.lastname }}</h1>
     {{ include('patient/_form.html.twig') }}
-
-    <a href="{{ path('patient_index') }}">back to list</a>
+    </div>
+    <a class="btn btn-primary text-light" href="{{ path('homeDoctor', {'id': doctor.id}) }}">Back to the doctor</a>
 {% endblock %}

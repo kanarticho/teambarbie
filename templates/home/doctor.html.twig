@@ -2,17 +2,37 @@
 {% block body %}
 
 <h1 class="text-center" >Dr. {{ doctor.firstname }} {{ doctor.lastname }}</h1>
-    <div class="text-center w-75 m-auto">
-        <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
-        </a>
+    <div class="w-25 m-auto text-center text-light">
+        <a href="{{ path('patient_new', {'idDoc':doctor.id})  }}" class="btn btn-primary m-4">Add new patient</a>
     </div>
-    <div class="text-center w-75 m-auto">
-        <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
-        </a>
-    </div>
-    <div class="text-center w-75 m-auto">
-        <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
-        </a>
+    <div class="w-50 m-auto">
+        <h3 class="text-primary card-title text-center">
+            List patient</h3>
+        <table class="table-borderless table-striped w-100">
+            <thead class="bg-primary text-light">
+                <tr class="col-12">
+                    <td class="text-center col-8">
+                    </td>
+                    <td class="text-center col-2">
+                        MedicAlert
+                    </td>
+                    <td class="text-center col-2">
+                        Mood'Alert
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for patient in patients %}
+
+            <tr class="text-center col-12 mx-2">
+                <td>{{ patient.firstname }} {{ patient.lastname }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 
 {% endblock %}

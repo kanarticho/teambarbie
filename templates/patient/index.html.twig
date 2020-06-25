@@ -8,21 +8,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
+                <th>Medic'Alert</th>
+                <th>Mood'Alert</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for patient in patients %}
             <tr>
-                <td>{{ patient.id }}</td>
                 <td>{{ patient.firstname }}</td>
                 <td>{{ patient.lastname }}</td>
                 <td>
-                    <a href="{{ path('patient_show', {'id': patient.id}) }}">show</a>
-                    <a href="{{ path('patient_edit', {'id': patient.id}) }}">edit</a>
+                    MedicAlert
+                </td>
+                <td>
+                    MoodAlert
+                </td>
+                <td>
+                    <a href="{{ path('patient_show', {'id': patient.id}) }}">Medication</a>
+                    <a href="{{ path('patient_show', {'id': patient.id}) }}">Show</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +39,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('patient_new') }}">Create new</a>
 {% endblock %}

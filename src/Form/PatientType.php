@@ -14,8 +14,6 @@ class PatientType extends AbstractType
         $builder
             ->add('firstname')
             ->add('lastname')
-            ->add('user')
-            ->add('doctor')
         ;
     }
 

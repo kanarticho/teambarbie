@@ -7,7 +7,7 @@ use App\Entity\Doctor;
 use App\Entity\Patient;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use faker;
+use Faker;
 
 class DoctorFixtures extends Fixture
 {
@@ -18,17 +18,10 @@ class DoctorFixtures extends Fixture
             $doctor = new Patient();
             $doctor->setFirstname($faker->firstName);
             $doctor->setLastname($faker->lastName);
-            $doctor->setUser($this->getReference('user_'));
             $manager->persist($doctor);
             $this->addReference('doctor_' . $i, $doctor);
         }
 
         $manager->flush();
     }
-
-    public function getDependencies()
-    {
-        return [UserFixtures::class];
-    }
-
 }

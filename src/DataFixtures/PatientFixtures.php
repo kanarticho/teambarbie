@@ -6,8 +6,9 @@ namespace App\DataFixtures;
 use App\Entity\Doctor;
 use App\Entity\Patient;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use faker;
+use Faker;
 
 class PatientFixtures extends Fixture
 {
@@ -19,8 +20,7 @@ class PatientFixtures extends Fixture
             $patient->setFirstname($faker->firstName);
             $patient->setLastname($faker->lastName);
             $patient->setPhone($faker->e164PhoneNumber);
-            $patient->setDoctor(($this->getReference('doctor_')));
-            $patient->setUser($this->getReference('user_'));
+            $patient->setDoctor($this->getReference('doctor_'. rand(0,19)));
             $manager->persist($patient);
             $this->addReference('patient_' . $i, $patient);
         }
@@ -30,7 +30,7 @@ class PatientFixtures extends Fixture
 
     public function getDependencies()
     {
-        return [DoctorFixtures::class, UserFixtures::class];
+        return [DoctorFixtures::class];
     }
 
 }

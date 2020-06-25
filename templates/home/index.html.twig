@@ -3,11 +3,12 @@
     Doctogood
 {% endblock %}
         {% block body %}
+            <section>
             <div class="text-primary text-center">
                 <div>
                     <a class="btn btn-primary m-5" href="{{ path('homePatient', {'id': patient.id})}}">Patient</a>
                     <a class="btn btn-primary m-5" href="{{ path('homeDoctor', {'id': doctor.id})}}">Doctor</a>
                 </div>
             </div>
-
+            </section>
         {% endblock %}

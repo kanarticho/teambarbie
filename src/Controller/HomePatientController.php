@@ -21,11 +21,11 @@ class HomePatientController extends AbstractController
     /**
      * @Route("homePatient/{id}", name="homePatient")
      */
-    public function index(Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository): Response
+    public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository): Response
     {
         $quotes = $quoteRepository->findAll();
         $key = array_rand($quotes);
-      
+
         $moodday = new Moodday();
           $form = $this->createForm(MooddayType::class, $moodday);
           $form->handleRequest($request);
@@ -37,7 +37,7 @@ class HomePatientController extends AbstractController
 
               return $this->redirectToRoute('homePatient', ['id' => $patient->getId()]);
           }
-      
+
         return $this->render('home/patient.html.twig', [
             'patient' => $patient,
             'quote' => $quotes[$key],

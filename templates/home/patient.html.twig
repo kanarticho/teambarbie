@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-    <h2 class="text-secondary text-center">{{ patient.firstname }} {{ patient.lastname }}</h2>
-    <div class="card-deck m-3">
+    <h2 class="text-secondary text-center p-2">{{ patient.firstname }} {{ patient.lastname }}</h2>
+    <div class="card-deck w-100 d-flex flex-wrap justify-content-around">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <h3 class="text-primary card-title">
@@ -15,7 +15,7 @@
                     </svg>
                     My next appointment
                 </h3>
-                <div class=" card-text text-dark">20 juillet 2020 <br>10h00</div>
+                <div class="card-text text-dark text-center">20 juillet 2020 <br>10h00</div>
             </div>
         </div>
         <div class="card" style="width: 18rem;">

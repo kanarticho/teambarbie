@@ -5,10 +5,10 @@
         {% block body %}
             <div class="text-primary text-center">
                 <div>
-                    <a href="">Patient</a>
+                    <a href="{{ path('homePatient', {'id': 1})}}">Patient</a>
                     <div>
                     </div>
-                    <a href="">Doctor</a>
+                    <a href="{{ path('homeDoctor', {'id': 1})}}">Doctor</a>
                 </div>
             </div>
         {% endblock %}

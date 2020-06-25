@@ -30,7 +30,7 @@ class HomePatientController extends AbstractController
             $entityManager->persist($moodday);
             $entityManager->flush();
 
-            return $this->redirectToRoute('moodday_index');
+            return $this->redirectToRoute('homePatient', ['id' => $patient->getId()]);
         }
         return $this->render('home/patient.html.twig', ['patient' => $patient, 'moodday' => $moodday,
             'form' => $form->createView(), ]);

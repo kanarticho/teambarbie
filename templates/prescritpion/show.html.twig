@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prescritpion{% endblock %}
+
+{% block body %}
+    <h1>Prescritpion</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ prescritpion.id }}</td>
+            </tr>
+            <tr>
+                <th>StartDate</th>
+                <td>{{ prescritpion.startDate ? prescritpion.startDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ prescritpion.duration }}</td>
+            </tr>
+            <tr>
+                <th>Morning</th>
+                <td>{{ prescritpion.morning ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Noon</th>
+                <td>{{ prescritpion.noon ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Evening</th>
+                <td>{{ prescritpion.evening ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('prescritpion_index') }}">back to list</a>
+
+    <a href="{{ path('prescritpion_edit', {'id': prescritpion.id}) }}">edit</a>
+
+    {{ include('prescritpion/_delete_form.html.twig') }}
+{% endblock %}

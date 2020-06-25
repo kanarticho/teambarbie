@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Prescritpion{% endblock %}
+
+{% block body %}
+    <h1>Edit Prescritpion</h1>
+
+    {{ include('prescritpion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('prescritpion_index') }}">back to list</a>
+
+    {{ include('prescritpion/_delete_form.html.twig') }}
+{% endblock %}

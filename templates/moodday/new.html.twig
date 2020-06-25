@@ -1,11 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}New Moodday{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Create new Moodday</h1>
-
     {{ include('moodday/_form.html.twig') }}
-
-    <a href="{{ path('moodday_index') }}">back to list</a>
 {% endblock %}

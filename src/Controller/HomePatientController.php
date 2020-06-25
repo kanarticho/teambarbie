@@ -21,23 +21,25 @@ class HomePatientController extends AbstractController
     /**
      * @Route("homePatient/{id}", name="homePatient")
      */
-    public function index(Patient $patient, QuoteRepository $quoteRepository, Request $request): Response
+    public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository): Response
     {
         $quotes = $quoteRepository->findAll();
         $key = array_rand($quotes);
-      
+
         $moodday = new Moodday();
           $form = $this->createForm(MooddayType::class, $moodday);
           $form->handleRequest($request);
 
           if ($form->isSubmitted() && $form->isValid()) {
               $entityManager = $this->getDoctrine()->getManager();
+              $moodday->setPatient($patient);
+              $moodday->setDate(new \DateTime('now'));
               $entityManager->persist($moodday);
               $entityManager->flush();
 
               return $this->redirectToRoute('homePatient', ['id' => $patient->getId()]);
           }
-      
+
         return $this->render('home/patient.html.twig', [
             'patient' => $patient,
             'quote' => $quotes[$key],

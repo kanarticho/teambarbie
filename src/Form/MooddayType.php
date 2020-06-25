@@ -15,7 +15,6 @@ class MooddayType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date')
             ->add('mood', EntityType::class, [
                 'class' => Mood::class,
                 'choice_label' => 'pictogram',

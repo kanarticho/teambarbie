@@ -33,6 +33,7 @@ class HomePatientController extends AbstractController
           if ($form->isSubmitted() && $form->isValid()) {
               $entityManager = $this->getDoctrine()->getManager();
               $moodday->setPatient($patient);
+              $moodday->setDate(new \DateTime('now'));
               $entityManager->persist($moodday);
               $entityManager->flush();
 

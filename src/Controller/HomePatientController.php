@@ -1,20 +1,21 @@
 <?php
 
+
 namespace App\Controller;
 
+
 use App\Entity\Patient;
-use App\Entity\Doctor;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomeController extends AbstractController
+class HomePatientController extends AbstractController
 {
     /**
-     * @Route("/", name="app_index")
+     * @Route("homePatient/{id}", name="homePatient")
      */
-    public function index(): Response
+    public function index(Patient $patient): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('home/patient.html.twig', ['patient' => $patient]);
     }
 }

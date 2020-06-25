@@ -2,6 +2,7 @@
 {% block body %}
 
 <h1 class="text-center" >Dr. {{ doctor.firstname }} {{ doctor.lastname }}</h1>
+    <section>
     <div class="text-center w-75 m-auto">
         <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
         </a>
@@ -14,5 +15,5 @@
         <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
         </a>
     </div>
-
+    </section>
 {% endblock %}

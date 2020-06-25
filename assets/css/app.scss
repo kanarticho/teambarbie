@@ -19,9 +19,7 @@ body {
     font-family: $main-font;
     font-size: 14px;
     width: 100%;
-    min-height: 100%;
     position: relative;
-    padding-bottom: 200px;
 }
 h1 {
     font-family: $title-font;
@@ -65,5 +63,5 @@ footer{
 
 
 section{
-    height: 100%;
+    height: 600px;
 }

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prescritpion index{% endblock %}
+
+{% block body %}
+    <h1>Prescritpion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StartDate</th>
+                <th>Duration</th>
+                <th>Morning</th>
+                <th>Noon</th>
+                <th>Evening</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prescritpion in prescritpions %}
+            <tr>
+                <td>{{ prescritpion.id }}</td>
+                <td>{{ prescritpion.startDate ? prescritpion.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ prescritpion.duration }}</td>
+                <td>{{ prescritpion.morning ? 'Yes' : 'No' }}</td>
+                <td>{{ prescritpion.noon ? 'Yes' : 'No' }}</td>
+                <td>{{ prescritpion.evening ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('prescritpion_show', {'id': prescritpion.id}) }}">show</a>
+                    <a href="{{ path('prescritpion_edit', {'id': prescritpion.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('prescritpion_new') }}">Create new</a>
+{% endblock %}

@@ -38,8 +38,7 @@ class HomePatientController extends AbstractController
               $moodday->setDate(new \DateTime('now'));
               $entityManager->persist($moodday);
               $entityManager->flush();
-
-              return $this->redirectToRoute('homePatient', ['id' => $patient->getId()]);
+              //return $this->redirectToRoute('homePatient', ['id' => $patient->getId()]);
           }
 
         return $this->render('home/patient.html.twig', [

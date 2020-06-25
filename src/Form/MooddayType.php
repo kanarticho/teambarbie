@@ -17,7 +17,7 @@ class MooddayType extends AbstractType
         $builder
             ->add('mood', EntityType::class, [
                 'class' => Mood::class,
-                'choice_label' => 'pictogram',
+                'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => false,
                 'by_reference' => false,

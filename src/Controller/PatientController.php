@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Doctor;
 use App\Entity\Patient;
 use App\Entity\Doctor;
 use App\Form\PatientType;
@@ -41,7 +42,7 @@ class PatientController extends AbstractController
             $patient->setDoctor($idDoc);
             $entityManager->persist($patient);
             $entityManager->flush();
-
+        
             return $this->redirectToRoute('homeDoctor', ['id'=>$idDoc->getId()]);
         }
 

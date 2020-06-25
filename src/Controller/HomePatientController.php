@@ -21,9 +21,7 @@ class HomePatientController extends AbstractController
     /**
      * @Route("homePatient/{id}", name="homePatient")
      */
-
     public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository): Response
-
     {
         $quotes = $quoteRepository->findAll();
         $key = array_rand($quotes);
@@ -46,7 +44,7 @@ class HomePatientController extends AbstractController
             'patient' => $patient,
             'quote' => $quotes[$key],
             'moodday' => $moodday,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
 }

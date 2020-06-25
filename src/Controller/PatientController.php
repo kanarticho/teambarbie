@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Patient;
+use App\Entity\Doctor;
 use App\Form\PatientType;
 use App\Repository\PatientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,24 +27,27 @@ class PatientController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="patient_new", methods={"GET","POST"})
+     * @Route("/new/{idDoc}", name="patient_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Doctor $idDoc): Response
     {
         $patient = new Patient();
+
         $form = $this->createForm(PatientType::class, $patient);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $patient->setDoctor($idDoc);
             $entityManager->persist($patient);
             $entityManager->flush();
 
-            return $this->redirectToRoute('patient_index');
+            return $this->redirectToRoute('homeDoctor', ['id'=>$idDoc->getId()]);
         }
 
         return $this->render('patient/new.html.twig', [
             'patient' => $patient,
+            'doctor' => $idDoc,
             'form' => $form->createView(),
         ]);
     }

@@ -26,3 +26,17 @@ h2, h3 {
 .quote {
     @include text($quote-font, 20px);
 }
+
+footer, a{
+    color: $light;
+    &{
+        h3{
+            font-family: $title-font;
+        }
+    }
+}
+
+footer a:hover{
+    color: $primary;
+    text-decoration: none;
+}

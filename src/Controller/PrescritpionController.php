@@ -42,10 +42,11 @@ class PrescritpionController extends AbstractController
             $entityManager->persist($prescritpion);
             $entityManager->flush();
 
-            return $this->redirectToRoute('prescritpion_index');
+            return $this->redirectToRoute('patientDetails', ['id'=>$idPatient->getId()]);
         }
 
         return $this->render('prescritpion/new.html.twig', [
+            'patient' => $idPatient,
             'prescritpion' => $prescritpion,
             'form' => $form->createView(),
         ]);

@@ -2,7 +2,11 @@
 {% block body %}
     <h2>{{ patient.firstName }} {{ patient.lastname }}</h2>
     <p>{{ patient.phone }}</p>
-    <div class="card-text text-dark text-center">20 juillet 2020 <br>10h00</div>
+
+    <div>
+        <h3>Next appointment</h3>
+        <div class="card-text text-dark">20 juillet 2020 <br>10h00</div>
+    </div>
     <div>
         <h3>Prescription</h3>
         <a class="btn btn-primary" href="{{ path('prescritpion_new', {'idPatient': patient.id}) }}">Add a prescription</a>

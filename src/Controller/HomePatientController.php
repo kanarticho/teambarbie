@@ -21,7 +21,7 @@ class HomePatientController extends AbstractController
     /**
      * @Route("homePatient/{id}", name="homePatient")
      */
-    public function index(Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository, Request $requestgit ): Response
+    public function index(Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository, Request $request ): Response
     {
         $quotes = $quoteRepository->findAll();
         $key = array_rand($quotes);

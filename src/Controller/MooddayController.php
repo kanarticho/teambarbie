@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Moodday;
+use App\Entity\Patient;
 use App\Form\MooddayType;
 use App\Repository\MooddayRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,9 +27,9 @@ class MooddayController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="moodday_new", methods={"GET","POST"})
+     * @Route("/new/{idPatient}", name="moodday_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Patient $idPatient): Response
     {
         $moodday = new Moodday();
         $form = $this->createForm(MooddayType::class, $moodday);
@@ -44,6 +45,7 @@ class MooddayController extends AbstractController
 
         return $this->render('moodday/new.html.twig', [
             'moodday' => $moodday,
+            'patient' => $idPatient,
             'form' => $form->createView(),
         ]);
     }

@@ -1,1 +1,18 @@
-<div>Dr. {{ doctor.firstname }} {{ doctor.lastname }}</div>
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<h1 class="text-center" >Dr. {{ doctor.firstname }} {{ doctor.lastname }}</h1>
+    <div class="text-center w-75 m-auto">
+        <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
+        </a>
+    </div>
+    <div class="text-center w-75 m-auto">
+        <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
+        </a>
+    </div>
+    <div class="text-center w-75 m-auto">
+        <a href="{{ 'patient_new' }}" class="btn btn-primary Add_Patient"> Add patient
+        </a>
+    </div>
+
+{% endblock %}

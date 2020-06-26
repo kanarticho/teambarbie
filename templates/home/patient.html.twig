@@ -31,6 +31,49 @@
                     </svg>
                     Prescriptions
                 </h3>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Medicine</th>
+                                <th scope="col">Morning</th>
+                                <th scope="col">Noon</th>
+                                <th scope="col">Evening</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for prescritpion in prescritpions %}
+                            <tr>
+                                <th>{{ prescritpion.medication.name }}</th>
+                                <td>
+                                    {% if prescritpion.morning == 1 %}
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if prescritpion.noon == 1 %}
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if prescritpion.evening == 1 %}
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="card" style="width: 18rem;">

@@ -18,9 +18,12 @@ class MooddayExtension extends AbstractExtension
         ];
     }
 
-    public function mooddays($values)
+    public function mooddays($value)
     {
-        $new='tets';
+        if($value==1){
+            return '';
+        };
+
         return $new;
     }
 

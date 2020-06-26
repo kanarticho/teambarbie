@@ -55,4 +55,5 @@ class Mood
 
         return $this;
     }
+
 }

@@ -29,7 +29,7 @@ class HomePatientController extends AbstractController
         $currentDate = new \DateTime('now');
         $quotes = $quoteRepository->findAll();
         $key = array_rand($quotes);
-        $moodday = $mooddayRepository->findBy(array('patient' => $patient, 'date' => $currentDate));
+        $mooddaySend = $mooddayRepository->findOneBy(array('patient' => $patient, 'date' => $currentDate));
 
         $moodday = new Moodday();
         $form = $this->createForm(MooddayType::class, $moodday);
@@ -50,7 +50,8 @@ class HomePatientController extends AbstractController
             'quote' => $quotes[$key],
             'moodday' => $moodday,
             'form' => $form->createView(),
-            'prescritpions' => $prescritpions
+            'prescritpions' => $prescritpions,
+            'mooddaySend' => $mooddaySend,
         ]);
     }
 }

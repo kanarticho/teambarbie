@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Patient;
 use App\Entity\Prescritpion;
 use App\Form\PrescritpionType;
+use App\Repository\PatientRepository;
 use App\Repository\PrescritpionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,9 +28,9 @@ class PrescritpionController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="prescritpion_new", methods={"GET","POST"})
+     * @Route("/new/{idPatient}", name="prescritpion_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Patient $idPatient): Response
     {
         $prescritpion = new Prescritpion();
         $form = $this->createForm(PrescritpionType::class, $prescritpion);
@@ -36,13 +38,15 @@ class PrescritpionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $prescritpion->setPatient($idPatient);
             $entityManager->persist($prescritpion);
             $entityManager->flush();
 
-            return $this->redirectToRoute('prescritpion_index');
+            return $this->redirectToRoute('patientDetails', ['id'=>$idPatient->getId()]);
         }
 
         return $this->render('prescritpion/new.html.twig', [
+            'patient' => $idPatient,
             'prescritpion' => $prescritpion,
             'form' => $form->createView(),
         ]);

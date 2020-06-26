@@ -1,5 +1,6 @@
 @import "vars";
 @import "mood";
+@import "toggle";
 
 $theme-colors: (
         "primary": $primary,
@@ -58,7 +59,6 @@ footer{
     right: 0;
 
 }
-
 
 .page-footer {
     position: relative;

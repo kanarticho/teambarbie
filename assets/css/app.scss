@@ -1,4 +1,7 @@
 @import "vars";
+@import "mood";
+@import "toggle";
+
 $theme-colors: (
         "primary": $primary,
         "secondary": $secondary,
@@ -8,10 +11,20 @@ $theme-colors: (
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@200&family=Roboto:wght@300&display=swap');
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: $light;
     font-family: $main-font;
     font-size: 14px;
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 200px;
 }
 h1 {
     font-family: $title-font;
@@ -39,3 +52,44 @@ footer a:hover{
     color: $primary;
     text-decoration: none;
 }
+
+footer{
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.page-footer {
+    margin-top:200px;
+    position: relative;
+    padding: 0;
+}
+
+
+.bg-ech1{
+    background-color: $ech1;
+}
+
+.bg-ech2{
+    background-color: $ech2;
+}
+
+.bg-ech3{
+    background-color: $ech3;
+}
+
+.bg-ech4{
+    background-color: $ech4;
+}
+
+.bg-ech5{
+    background-color: $ech5;
+}
+
+.moodAlert div{
+    height:15px;
+    width:15px;
+    border-radius: 50%;
+}
+

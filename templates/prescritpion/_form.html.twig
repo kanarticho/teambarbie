@@ -1,4 +1,40 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container ">
+    <div class="row my-4 justify-content-center">
+        <div class="mx-2">
+            {{ form_label(form.medication, 'Medicine') }}
+            {{ form_widget(form.medication) }}
+        </div>
+
+        <div class="mx-2">
+            {{ form_label(form.duration, 'Treatment duration') }}
+            {{ form_widget(form.duration) }}
+        </div>
+    </div>
+
+    <div class="row my-4 justify-content-center">
+        <div class="row mx-2">
+            {{ form_label(form.startDate, 'Treatment start date') }}
+            {{ form_widget(form.startDate) }}
+        </div>
+    </div>
+    <div class="row my-4 justify-content-center">
+        <p>Drug dose : </p>
+        <div class="mx-2">
+            {{ form_label(form.morning, 'Morning') }}
+            {{ form_widget(form.morning) }}
+        </div>
+        <div class="mx-2">
+            {{ form_label(form.noon, 'Noon') }}
+            {{ form_widget(form.noon) }}
+        </div>
+        <div class="mx-2">
+            {{ form_label(form.evening, 'Evening') }}
+            {{ form_widget(form.evening) }}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+    <button class="btn btn-primary ">{{ button_label|default('Save') }}</button>
+    </div>
+    {{ form_end(form) }}
+</div>

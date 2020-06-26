@@ -6,7 +6,7 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
-class PhoneFormatExtension extends AbstractExtension
+class MooddayExtension extends AbstractExtension
 {
     public function getFilters(): array
     {
@@ -14,15 +14,17 @@ class PhoneFormatExtension extends AbstractExtension
             // If your filter generates SAFE HTML, you should add a third
             // parameter: ['is_safe' => ['html']]
             // Reference: https://twig.symfony.com/doc/2.x/advanced.html#automatic-escaping
-            new TwigFilter('formatPhoneFr', [$this, 'formatPhoneFr']),
+            new TwigFilter('mooddays', [$this, 'mooddays']),
         ];
     }
 
-    public function formatPhoneFr($value)
+    public function mooddays($value)
     {
-        $array = str_split($value, 3);
-        $newNum = implode(' ', $array);
-        return $newNum;
+        if($value==1){
+            return '';
+        };
+
+        return $new;
     }
 
 }

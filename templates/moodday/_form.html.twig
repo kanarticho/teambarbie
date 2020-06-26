@@ -1,4 +1,17 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="justify-content-between">
+    <div class="weather w-100 mb-2">
+        <img src="/build/images/soleil.png" alt="sun for happy"/>
+        <img src="/build/images/nuageux.png" alt="sun with clouds for fine"/>
+        <img src="/build/images/nuages.png" alt="clouds for just ok"/>
+        <img src="/build/images/pluie.png" alt="rain for sad"/>
+        <img src="/build/images/orage.png" alt="lightning for depressed"/>
+    </div>
+    <div class="w-100">
+        {{ form_widget(form.mood) }}
+    </div>
+
+<div class="text-center">
+    <button class="btn btn-primary mt-3">{{ button_label|default('Save') }}</button>
+</div>
+    {{ form_end(form) }}

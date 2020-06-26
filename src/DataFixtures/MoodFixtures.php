@@ -5,18 +5,40 @@ namespace App\DataFixtures;
 
 use App\Entity\Mood;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
-use Faker;
+use Doctrine\Persistence\ObjectManager;
+
 
 class MoodFixtures extends Fixture
 {
+    const MOODS = [
+
+        'Happy' => [
+            'pictogram' => 'soleil.png'
+        ],
+
+        'Fine' => [
+            'pictogram' => 'nuageux.png'
+        ],
+        'Just Ok' => [
+            'pictogram' => 'nuages.png'
+        ],
+        'Sad' => [
+            'pictogram' => 'pluie.png'
+        ],
+        'Depressed' => [
+            'pictogram' => 'orage.png'
+        ],
+    ];
     public function load(ObjectManager $manager)
     {
-        $faker  =  Faker\Factory::create('fr_FR');
-        for ($i=0; $i<=20; $i++) {
+        $i = 0;
+        foreach (self::MOODS as $name => $data) {
             $mood = new Mood();
-            $mood->setName($faker->realText(50));
-            $mood->setPictogram($faker->imageUrl());
+            $mood->setName($name);
+            $mood->setPictogram($data['pictogram']);
+            $manager->persist($mood);
+            $i++;
+            $this->addReference('mood_' . $i, $mood);
         }
         $manager->flush();
     }

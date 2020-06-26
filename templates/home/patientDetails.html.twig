@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Doctogood | Patient File{% endblock %}
+
+{% block body %}
+    <section>
+    <h1 class="text-center p-2"><a href="{{ path('homePatient', {'id': patient.id}) }}"><svg class="bi bi-link-45deg" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                <path d="M5.712 6.96l.167-.167a1.99 1.99 0 0 1 .896-.518 1.99 1.99 0 0 1 .518-.896l.167-.167A3.004 3.004 0 0 0 6 5.499c-.22.46-.316.963-.288 1.46z"/>
+                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z"/>
+                <path d="M10 9.5a2.99 2.99 0 0 0 .288-1.46l-.167.167a1.99 1.99 0 0 1-.896.518 1.99 1.99 0 0 1-.518.896l-.167.167A3.004 3.004 0 0 0 10 9.501z"/>
+            </svg></a> {{ patient.firstName }} {{ patient.lastname }}</h2>
+    <p></p>
+<div class="d-flex flex-wrap justify-content-around">
+    <div class="card d-flex align-items-center">
+        <div class="card-body">
+            <h3 class="text-primary card-title text-center">
+                <svg class="bi bi-calendar3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                </svg>
+                Next appointment
+            </h3>
+            <div class="card-text text-dark text-center">20 juillet 2020 <br>10h00</div>
+            <div class="text-center mt-3"><img src="https://img.icons8.com/metro/26/000000/phone.png"/>Patient's phone number : {{ patient.phone|formatPhoneFr }}</div>
+        </div>
+    </div>
+</div>
+
+    <div class="d-flex flex-column align-items-center justify-content-around mt-4">
+        <h3 class="pb-4">Prescription</h3>
+    </div>
+        <div class="w-75 m-auto">
+    {% if prescritpions is not null %}
+        {% for prescritpion in prescritpions %}
+        <h3 class=" px-2 py-2 w-25 bg-primary text-light text-left">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                 width="20" height="20" viewBox="0 0 172 172" style=" fill:currentColor;"><g fill="none" fill-rule="nonzero"
+                                                                                        stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                                                                        text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none">
+                    </path><g fill="#FFFFFF"><path d="M123.21154,0.82692c-12.27464,0 -24.52344,4.70313 -33.90385,14.05769c-1.1887,
+            1.21454 -16.30589,16.09916 -30.38942,30.18269c-20.46635,20.46635 -42.19892,42.19892 -44.03365,44.03365c-18.73497,
+            18.73497 -18.73497,49.27945 0,68.01442c9.35457,9.35457 21.83594,14.05769 34.11058,14.05769c12.27464,0 24.52344,
+            -4.70312 33.90385,-14.05769c1.47296,-1.49879 23.46394,-23.46394 44.03365,-44.03365c14.13522,-14.13522 28.91647,
+            -29.1232 30.18269,-30.38942c18.73497,-18.73497 18.73497,-49.07272 0,-67.80769c-9.35456,-9.35456 -21.62921,
+            -14.05769 -33.90385,-14.05769zM123.21154,14.05769c9.27704,0 18.03726,3.56611 24.60096,10.12981c13.54087,
+            13.54087 13.51503,35.66106 0,49.20192c-1.26622,1.26622 -16.25421,16.04747 -30.38942,30.18269l-37.21154,
+            -37.21154l-63.46635,63.46635c-5.60757,-15.27224 9.30288,-32.66346 9.30288,-32.66346l42.37981,
+            -42.58654c14.08353,-14.08353 28.99399,-29.20072 30.18269,-30.38942c6.56371,-6.5637 15.32392,-10.12981 24.60096,
+            -10.12981z"></path></g></g></svg>
+                {{ prescritpion.medication.name }}</h3>
+            <table class="table text-center">
+                <tbody>
+                <tr class="bg-primary text-light">
+                    <td>Start date</td>
+                    <td>End date</td>
+                    <td>Duration</td>
+                    <td>Morning</td>
+                    <td>Noon</td>
+                    <td>Evening</td>
+                </tr>
+                <tr>
+                    <td>{{ prescritpion.startDate ? prescritpion.startDate|date('Y-m-d') : '' }}</td>
+                    <td>{{ prescritpion.startDate|date_modify('+' ~ prescritpion.duration ~ ' days')|date('Y-m-d') }}</td>
+                    <td>{{ prescritpion.duration }} days</td>
+                    <td class="text-primary">{{ prescritpion.morning ? '<svg class="bi bi-check-circle-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+</svg>' : '' }}</td>
+                    <td class="text-primary">{{ prescritpion.noon ? '<svg class="bi bi-check-circle-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+</svg>' : '' }}</td>
+                    <td class="text-primary">{{ prescritpion.evening ? '<svg class="bi bi-check-circle-fill" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+</svg>' : '' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    {% endif %}
+        {% if prescritpions is empty %}
+            <div class="text-center">This patient have no prescription currently.</div>
+        {% endif %}
+        <div class="d-flex align-items-center justify-content-around mt-4">
+            <a class="btn btn-primary mb-4" href="{{ path('homeDoctor', {'id': doctor.id}) }}">Back</a>
+            <a class="btn btn-primary mb-4" href="{{ path('prescritpion_new', {'idPatient': patient.id}) }}">Add a prescription</a>
+
+    </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Prescritpion{% endblock %}
+{% block title %}Doctogood | New Prescription{% endblock %}
 
 {% block body %}
-    <h1>Create new Prescritpion</h1>
+    <h1 class="text-center p-3">New Prescription</h1>
 
     {{ include('prescritpion/_form.html.twig') }}
 
-    <a href="{{ path('prescritpion_index') }}">back to list</a>
+<div class="row justify-content-center my-4">
+    <a href="{{ path('patientDetails', {'id': patient.id}) }}">Back to patient file</a>
+</div>
 {% endblock %}

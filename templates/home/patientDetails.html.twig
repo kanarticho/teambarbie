@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <section>
     <h2>{{ patient.firstName }} {{ patient.lastname }}</h2>
     <p>{{ patient.phone }}</p>
 
@@ -44,4 +45,5 @@
             </table>
         {% endfor %}
     {% endif %}
+    </section>
 {% endblock %}

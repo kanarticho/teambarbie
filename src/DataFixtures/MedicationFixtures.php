@@ -16,7 +16,8 @@ class MedicationFixtures extends Fixture
         $faker  =  Faker\Factory::create('fr_FR');
         for ($i=0; $i<=20; $i++) {
             $medication = new Medication();
-            $medication->setName($faker->realText(50));
+            $medication->setName($faker->word);
+            $manager->persist($medication);
         }
         $manager->flush();
     }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-
+<section>
     <h2 class="text-secondary text-center p-2">{{ patient.firstname }} {{ patient.lastname }}</h2>
     <div>
     <div class="card-deck w-100 d-flex flex-wrap justify-content-around">
@@ -95,6 +95,5 @@
     </div>
 </div>
     {% include 'includes/quote.html.twig' %}
-
-
+</section>
 {% endblock %}

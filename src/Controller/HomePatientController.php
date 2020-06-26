@@ -22,9 +22,13 @@ class HomePatientController extends AbstractController
     /**
      * @Route("homePatient/{id}", name="homePatient")
      */
+<<<<<<< HEAD
 
     public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MooddayRepository $mooddayRepository): Response
 
+=======
+    public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository): Response
+>>>>>>> 22be2ca8d5335da18cc3449ebec99f706340ce9d
     {
         $currentDate = new \DateTime('now');
         $quotes = $quoteRepository->findAll();
@@ -49,6 +53,11 @@ class HomePatientController extends AbstractController
             'patient' => $patient,
             'quote' => $quotes[$key],
             'moodday' => $moodday,
+<<<<<<< HEAD
             'form' => $form->createView()]);
+=======
+            'form' => $form->createView(),
+        ]);
+>>>>>>> 22be2ca8d5335da18cc3449ebec99f706340ce9d
     }
 }

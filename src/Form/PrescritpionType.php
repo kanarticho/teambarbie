@@ -17,8 +17,9 @@ class PrescritpionType extends AbstractType
             ->add('morning')
             ->add('noon')
             ->add('evening')
-            ->add('patient')
-            ->add('medication')
+            ->add('medication', null, [
+                'choice_label' => 'name'
+            ])
         ;
     }
 

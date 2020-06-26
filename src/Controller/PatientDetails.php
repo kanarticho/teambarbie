@@ -20,10 +20,10 @@ class PatientDetails extends AbstractController
      */
     public function index(Patient $patient, PrescritpionRepository $prescritpionRepository) : Response
     {
-        $prescritpion = $prescritpionRepository->find($patient->getId());
+        $prescritpions = $prescritpionRepository->findBy(['patient' => $patient]);
         return $this->render('home/patientDetails.html.twig', [
             'patient' => $patient,
-            'prescritpion' => $prescritpion
+            'prescritpions' => $prescritpions,
         ]);
     }
 }

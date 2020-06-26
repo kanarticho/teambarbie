@@ -11,4 +11,37 @@
         <h3>Prescription</h3>
         <a class="btn btn-primary" href="{{ path('prescritpion_new', {'idPatient': patient.id}) }}">Add a prescription</a>
     </div>
+    {% if prescritpions is not null %}
+        {% for prescritpion in prescritpions %}
+            <h3>{{ prescritpion.medication.name }}</h3>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Start date</th>
+                    <td>{{ prescritpion.startDate ? prescritpion.startDate|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>End date</th>
+                    <td>{{ prescritpion.startDate|date_modify('+' ~ prescritpion.duration ~ ' days')|date('Y-m-d') }}</td>
+                </tr>
+                <tr>
+                    <th>Duration</th>
+                    <td>{{ prescritpion.duration }} days</td>
+                </tr>
+                <tr>
+                    <th>Morning</th>
+                    <td>{{ prescritpion.morning ? 'Yes' : 'No' }}</td>
+                </tr>
+                <tr>
+                    <th>Noon</th>
+                    <td>{{ prescritpion.noon ? 'Yes' : 'No' }}</td>
+                </tr>
+                <tr>
+                    <th>Evening</th>
+                    <td>{{ prescritpion.evening ? 'Yes' : 'No' }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

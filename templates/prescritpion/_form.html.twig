@@ -11,9 +11,12 @@
             {{ form_widget(form.duration) }}
         </div>
     </div>
-    <div class="row mx-2 my-4 justify-content-center">
-        {{ form_label(form.startDate, 'Treatment start date') }}
-        {{ form_widget(form.startDate) }}
+
+    <div class="row my-4 justify-content-center vh-100">
+        <div class="row mx-2">
+            {{ form_label(form.startDate, 'Treatment start date') }}
+            {{ form_widget(form.startDate) }}
+        </div>
     </div>
     <div class="row my-4 justify-content-center">
         <p>Drug dose : </p>

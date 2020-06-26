@@ -8,6 +8,7 @@ use App\Entity\Mood;
 use App\Entity\Moodday;
 use App\Entity\Patient;
 use App\Entity\Quote;
+use App\Repository\PrescritpionRepository;
 use App\Repository\QuoteRepository;
 use App\Form\MooddayType;
 use App\Repository\MoodRepository;
@@ -21,8 +22,10 @@ class HomePatientController extends AbstractController
     /**
      * @Route("homePatient/{id}", name="homePatient")
      */
-    public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository): Response
+    public function index(Request $request, Patient $patient, QuoteRepository $quoteRepository, MoodRepository $moodRepository, PrescritpionRepository $prescritpionRepository): Response
     {
+        $prescritpions = $prescritpionRepository->findBy(['patient' => $patient]);
+
         $quotes = $quoteRepository->findAll();
         $key = array_rand($quotes);
 
@@ -45,6 +48,7 @@ class HomePatientController extends AbstractController
             'quote' => $quotes[$key],
             'moodday' => $moodday,
             'form' => $form->createView(),
+            'prescritpions' => $prescritpions
         ]);
     }
 }

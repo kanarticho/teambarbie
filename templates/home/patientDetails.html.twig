@@ -23,8 +23,8 @@
     </div>
 </div>
 
-    <div class="align-items-center justify-content-around">
-        <h3>Prescription</h3>
-        <a class="btn btn-primary" href="{{ path('prescritpion_new', {'idPatient': patient.id}) }}">Add a prescription</a>
+    <div class="d-flex flex-column align-items-center justify-content-around mt-4">
+        <h3 class="pb-4">Prescription</h3>
+        <a class="btn btn-primary mb-4" href="{{ path('prescritpion_new', {'idPatient': patient.id}) }}">Add a prescription</a>
     </div>
 {% endblock %}

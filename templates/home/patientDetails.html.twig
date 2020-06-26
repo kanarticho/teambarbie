@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}Doctogood | Patient File{% endblock %}
 
+{% block body %}
+    <section>
 {% block body %}
     <h2 class="text-center p-2">Patient file : {{ patient.firstName }} {{ patient.lastname }}</h2>
     <p></p>
@@ -60,4 +63,5 @@
             </table>
         {% endfor %}
     {% endif %}
+    </section>
 {% endblock %}

@@ -3,7 +3,7 @@
     Doctogood | Doctor Home
 {% endblock %}
 {% block body %}
-
+<section>
 <h1 class="text-center" >Dr. {{ doctor.firstname }} {{ doctor.lastname }}</h1>
     <div class="w-25 m-auto text-center text-light">
         <a href="{{ path('patient_new', {'idDoc':doctor.id})  }}" class="btn btn-primary m-4">Add new patient</a>
@@ -37,5 +37,5 @@
             </tbody>
         </table>
     </div>
-
+</section>
 {% endblock %}

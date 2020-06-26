@@ -59,3 +59,39 @@ footer{
     right: 0;
 
 }
+
+.page-footer {
+    position: relative;
+    padding: 0;
+}
+
+
+section{
+    height: 100%;
+}
+
+.bg-ech1{
+    background-color: $ech1;
+}
+
+.bg-ech2{
+    background-color: $ech2;
+}
+
+.bg-ech3{
+    background-color: $ech3;
+}
+
+.bg-ech4{
+    background-color: $ech4;
+}
+
+.bg-ech5{
+    background-color: $ech5;
+}
+
+.moodAlert div{
+    height:15px;
+    width:15px;
+    border-radius: 50%;
+}

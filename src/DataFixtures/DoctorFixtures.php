@@ -14,7 +14,7 @@ class DoctorFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker  =  Faker\Factory::create('fr_FR');
-        for ($i=0; $i<=20; $i++) {
+        for ($i=0; $i<=6; $i++) {
             $doctor = new Doctor();
             $doctor->setFirstname($faker->firstName);
             $doctor->setLastname($faker->lastName);

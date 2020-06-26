@@ -38,6 +38,7 @@ class MoodFixtures extends Fixture
             $mood->setPictogram($data['pictogram']);
             $manager->persist($mood);
             $i++;
+            $this->addReference('mood_' . $i, $mood);
         }
         $manager->flush();
     }

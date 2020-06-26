@@ -40,17 +40,17 @@
                             <table class="table table-sm ">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Medicine</th>
-                                    <th scope="col">Morning</th>
-                                    <th scope="col">Noon</th>
-                                    <th scope="col">Evening</th>
+                                    <th scope="col" class="py-2">Medicine</th>
+                                    <th scope="col" class="py-2">Morning</th>
+                                    <th scope="col" class="py-2">Noon</th>
+                                    <th scope="col" class="py-2">Evening</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for prescritpion in prescritpions %}
                                 {% if (prescritpion.startDate| date_modify ('+' ~ prescritpion.duration ~ ' days')|date('Y-m-d') >= "now"|date('Y-m-d')) and (prescritpion.startDate|date('Y-m-d') <= "now"|date('Y-m-d')) %}
                                 <tr>
-                                    <th>{{ prescritpion.medication.name }}</th>
+                                    <th class="py-2">{{ prescritpion.medication.name }}</th>
                                     <td>
                                         {% if prescritpion.morning == 1 %}
                                             <label class="switch">

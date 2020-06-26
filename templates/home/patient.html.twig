@@ -2,6 +2,7 @@
 {% block body %}
 
     <h2 class="text-secondary text-center p-2">{{ patient.firstname }} {{ patient.lastname }}</h2>
+    <div>
     <div class="card-deck w-100 d-flex flex-wrap justify-content-around">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -30,6 +31,49 @@
                     </svg>
                     Prescriptions
                 </h3>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Medicine</th>
+                                <th scope="col">Morning</th>
+                                <th scope="col">Noon</th>
+                                <th scope="col">Evening</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for prescritpion in prescritpions %}
+                            <tr>
+                                <th>{{ prescritpion.medication.name }}</th>
+                                <td>
+                                    {% if prescritpion.morning == 1 %}
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if prescritpion.noon == 1 %}
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if prescritpion.evening == 1 %}
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -43,12 +87,14 @@
                     </svg>
                     What's my mood today?
                 </h3>
+
                 {%  include 'moodday/new.html.twig' %}
 
             </div>
         </div>
     </div>
-    </div>
-
+</div>
     {% include 'includes/quote.html.twig' %}
+
+
 {% endblock %}

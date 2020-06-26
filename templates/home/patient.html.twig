@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
     <section class="mb-5 mb-md-0">
-        <h2 class="text-secondary text-center p-3">Hello, {{ patient.firstname }} {{ patient.lastname }}</h2>
+        <h1 class="text-secondary text-center p-3">Hello, {{ patient.firstname }} {{ patient.lastname }}</h1>
         <div>
             <div class="card-deck mx-2 d-flex flex-wrap justify-content-around">
                 <div class="card" style="width: 18rem;">
@@ -98,7 +98,7 @@
                         {% if mooddaySend.date is not defined %}
                             {% include 'moodday/new.html.twig' %}
                         {% else %}
-                            Come back tomorrow !
+                            <p class="font-italic">Come back tomorrow !</p>
                         {% endif %}
                     </div>
                 </div>

@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
+{% block title %}
+    Doctogood | Patient Home
+{% endblock %}
 {% block body %}
-    <section>
+    <section class="mb-5 mb-md-0">
         <h2 class="text-secondary text-center p-2">{{ patient.firstname }} {{ patient.lastname }}</h2>
         <div>
             <div class="card-deck w-100 d-flex flex-wrap justify-content-around">
@@ -45,36 +48,36 @@
                                 </thead>
                                 <tbody>
                                 {% for prescritpion in prescritpions %}
-                                    {% if (prescritpion.startDate| date_modify ('+' ~ prescritpion.duration ~ ' days')|date('Y-m-d') >= "now"|date('Y-m-d')) and (prescritpion.startDate|date('Y-m-d') <= "now"|date('Y-m-d')) %}
-                                        <tr>
-                                            <th>{{ prescritpion.medication.name }}</th>
-                                            <td>
-                                                {% if prescritpion.morning == 1 %}
-                                                    <label class="switch">
-                                                        <input type="checkbox">
-                                                        <span class="slider round"></span>
-                                                    </label>
-                                                {% endif %}
-                                            </td>
-                                            <td>
-                                                {% if prescritpion.noon == 1 %}
-                                                    <label class="switch">
-                                                        <input type="checkbox">
-                                                        <span class="slider round"></span>
-                                                    </label>
-                                                {% endif %}
-                                            </td>
-                                            <td>
-                                                {% if prescritpion.evening == 1 %}
-                                                    <label class="switch">
-                                                        <input type="checkbox">
-                                                        <span class="slider round"></span>
-                                                    </label>
-                                                {% endif %}
-                                            </td>
-                                        </tr>
-                                    {% endif %}
-                                {% endfor %}
+                                {% if (prescritpion.startDate| date_modify ('+' ~ prescritpion.duration ~ ' days')|date('Y-m-d') >= "now"|date('Y-m-d')) and (prescritpion.startDate|date('Y-m-d') <= "now"|date('Y-m-d')) %}
+                                <tr>
+                                    <th>{{ prescritpion.medication.name }}</th>
+                                    <td>
+                                        {% if prescritpion.morning == 1 %}
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        {% endif %}
+                                    </td>
+                                    <td>s="mb-5 mb-md-0">
+                                        {% if prescritpion.noon == 1 %}
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if prescritpion.evening == 1 %}
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                        {% endif %}
+                                        {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -92,11 +95,11 @@
                             What's my mood today?
                         </h3>
 
-                        {% if mooddaySend.date is not defined%}
+                        {% if mooddaySend.date is not defined %}
                             {% include 'moodday/new.html.twig' %}
-                            {% else %}
+                        {% else %}
                             "Come back tomorrow"
-                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

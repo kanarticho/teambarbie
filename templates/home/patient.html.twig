@@ -43,6 +43,7 @@
                         </thead>
                         <tbody>
                         {% for prescritpion in prescritpions %}
+                            {%  if (prescritpion.startDate| date_modify ('+' ~ prescritpion.duration ~ ' days')|date('Y-m-d') >= "now"|date('Y-m-d')) and (prescritpion.startDate|date('Y-m-d') <= "now"|date('Y-m-d'))  %}
                             <tr>
                                 <th>{{ prescritpion.medication.name }}</th>
                                 <td>
@@ -70,6 +71,7 @@
                                     {% endif %}
                                 </td>
                             </tr>
+                            {% endif %}
                         {% endfor %}
                         </tbody>
                     </table>

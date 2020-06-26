@@ -80,6 +80,9 @@
                                         {% endfor %}
                                 </tbody>
                             </table>
+                            {% if prescritpions is empty %}
+                                <p class="font-italic">You have no current prescription</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
